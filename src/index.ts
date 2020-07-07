@@ -1,20 +1,12 @@
 import { of, from } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilKeyChanged } from 'rxjs/operators';
 
 /** 
- * distinctUntilChanged: emite valores siempre y cuando la emisión anterior
- * no sea la misma
- * https://rxjs-dev.firebaseapp.com/api/operators/distinctUntilChanged
+ * distinctUntilKeyChanged: emite valores siempre y cuando la emisión sea
+ * igual a la propiedad anterior
+ * https://rxjs-dev.firebaseapp.com/api/operators/distinctUntilKeyChanged
  * 
 */
-
-
-const numeros$ = of(1,1,4,1,1,3,3,3,3,3,2,2,4,4,4,4,4,5,4,3,2,1)
-
-numeros$.pipe(
-  distinctUntilChanged() // ===
-)
-.subscribe(console.log)
 
 interface Personaje {
   nombre: string;
@@ -58,6 +50,6 @@ const personajes: Personaje[] = [
 ]
 // Con objetos
 from(personajes).pipe(
-  distinctUntilChanged((ant, act) => ant.nombre === act.nombre)
+  distinctUntilKeyChanged('nombre')
 )
 .subscribe(console.log)
