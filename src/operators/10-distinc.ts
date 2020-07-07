@@ -1,18 +1,18 @@
 import { of, from } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinct } from 'rxjs/operators';
 
 /** 
- * distinctUntilChanged: emite valores siempre y cuando la emisión anterior
- * no sea la misma
- * https://rxjs-dev.firebaseapp.com/api/operators/distinctUntilChanged
+ * distinct: emite valores los cuales previamente no han
+ * sido emitidos
+ * https://rxjs-dev.firebaseapp.com/api/operators/distinct
  * 
 */
 
 
-const numeros$ = of(1,1,4,1,1,3,3,3,3,3,2,2,4,4,4,4,4,5,4,3,2,1)
+const numeros$ = of(1,1,1,1,1,3,3,3,3,3,2,2,4,4,4,4,4,5,4,3,2,1)
 
 numeros$.pipe(
-  distinctUntilChanged() // ===
+  distinct() // ===
 )
 .subscribe(console.log)
 
@@ -37,7 +37,7 @@ const personajes: Personaje[] = [
   },{
     nombre: 'Zero'
   },{
-    nombre: 'Zero'
+    nombre: 'Megaman'
   },{
     nombre: 'Megaman'
   },{
@@ -49,7 +49,7 @@ const personajes: Personaje[] = [
   },{
     nombre: 'Supermán'
   },{
-    nombre: 'X'
+    nombre: 'Megaman'
   },{
     nombre: 'Megaman'
   },{
@@ -58,6 +58,6 @@ const personajes: Personaje[] = [
 ]
 // Con objetos
 from(personajes).pipe(
-  distinctUntilChanged((ant, act) => ant.nombre === act.nombre)
+  distinct(p => p.nombre)
 )
 .subscribe(console.log)
