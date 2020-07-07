@@ -1,5 +1,5 @@
-import { asyncScheduler } from 'rxjs';
+import { of, from } from 'rxjs';
 /** 
- * asyncScheduler
- * https://rxjs-dev.firebaseapp.com/api/index/const/asyncScheduler
+ * of: toma argumentos y genera una secuencia
+ * from: crea secuencia obs, objeto iterable
 */
