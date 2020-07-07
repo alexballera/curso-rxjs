@@ -1,8 +1,10 @@
-
+import { interval, fromEvent } from 'rxjs';
+import { takeUntil, skip, tap } from 'rxjs/operators';
 /** 
- * first: emite el primer valor o el primero que cumpla
- * la condición y luego se completa
- * aplica una función acumulativa
- * https://rxjs-dev.firebaseapp.com/api/operators/first
+ * takeUntil: emite los valores que cumplen con una notificación
+ *            de otro observable y luego se completa
+ * skip: se salta los valores hasta el parámetro pasado
+ * https://rxjs-dev.firebaseapp.com/api/operators/takeUntil
+ * https://rxjs-dev.firebaseapp.com/api/operators/skip
  * 
 */
