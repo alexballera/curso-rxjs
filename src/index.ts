@@ -36,13 +36,28 @@ const progressBar = document.createElement('div')
 progressBar.setAttribute('class', 'progress-bar')
 body.append(progressBar)
 
+const calcularPorcentajeScroll = event => {
+
+  const {
+    scrollHeight,
+    scrollTop,
+    clientHeight,
+  } = event.target.documentElement
+
+  return (scrollTop / (scrollHeight - clientHeight)) * 100
+}
+
 // Streams
 
 const scroll$ = fromEvent(document, 'scroll')
 
 // scroll$.subscribe(console.log)
 
-const progress$ = scroll$.pipe()
+const progress$ = scroll$.pipe(
+  // map(event => calcularPorcentajeScroll(event))
+  map(calcularPorcentajeScroll),
+  tap(console.log)
+)
 
 progress$.subscribe( porcentaje => {
   progressBar.style.width = `${porcentaje}%`
