@@ -7,3 +7,16 @@ import { of, range, asyncScheduler } from 'rxjs';
  * Argumentos: 1ro indica el inicio y 2do indica la cantidad
  * asyncScheduler la convertimos en asíncrona
 */
+
+// const src$ = of<number>(1,2,3,4,5)
+
+// console.log('Inicio')
+// src$.subscribe(console.log)
+// console.log('Fin')
+
+const src$ = range(1,5, asyncScheduler)
+
+console.log('Inicio')
+src$.subscribe(console.log)
+console.log('Fin')
+
