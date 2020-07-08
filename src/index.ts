@@ -1,14 +1,5 @@
-import { ajax } from 'rxjs/ajax';
-
 /** 
  * ajax getJSON
+ * getJSON obtiene la información de la respuesta
+ * ajax muestra más información de la petición
 */
-
-const url = 'https://httpbin.org/delay/1'
-
-const obs$ = ajax.getJSON(url, {
-  'Content-Type': 'application/json',
-  'mi-token': 'ABC123'
-})
-
-obs$.subscribe(data => console.log('data', data))
