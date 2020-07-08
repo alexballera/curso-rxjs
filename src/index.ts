@@ -1,9 +1,12 @@
 /** 
- * auditTime: Ignora los valores de origen durante milisegundos
- * de duración, luego emite el valor más reciente del Observable
- * de origen, luego repite este proceso.
- * 
- * auditTime<T>(duration: number, scheduler: SchedulerLike = async): MonoTypeOperatorFunction<T>
- * 
- * https://rxjs-dev.firebaseapp.com/api/operators/auditTime
+ * fetchApi
 */
+
+const url = 'https://api.github.com/users?per_page=5'
+
+const fetchPromesa = fetch(url)
+
+fetchPromesa
+  .then(resp => resp.json())
+  .then(data => console.log('data:', data))
+  .catch(err => console.warn('Error', err))
