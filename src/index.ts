@@ -1,8 +1,9 @@
 /** 
- * sampleTime: Emite el valor emitido más recientemente desde
- * la fuente Observable dentro de intervalos de tiempo periódicos.
+ * sample: Emite el valor emitido más recientemente desde
+ * la fuente Observable siempre que otro Observable,
+ * el notificador, emite.
  * 
- * sampleTime<T>(period: number, scheduler: SchedulerLike = async): MonoTypeOperatorFunction<T>
+ * sample<T>(notifier: Observable<any>): MonoTypeOperatorFunction<T>
  * 
- * https://rxjs-dev.firebaseapp.com/api/operators/sampleTime
+ * https://rxjs-dev.firebaseapp.com/api/operators/sample
 */
