@@ -8,11 +8,6 @@ import { startWith } from 'rxjs/operators';
  * startWith<T, D>(...array: (SchedulerLike | T)[]): OperatorFunction<T, T | D>
  * https://rxjs-dev.firebaseapp.com/api/operators/startWith
  * 
- * endWith: Devuelve un Observable que emite los elementos que
- * especifique como argumentos después de que termine de emitir
- * elementos emitidos por el Observable de origen.
- * endWith<T>(...array: (SchedulerLike | T)[]): MonoTypeOperatorFunction<T>
- * https://rxjs-dev.firebaseapp.com/api/operators/endWith
 */
 
 // Referencias
