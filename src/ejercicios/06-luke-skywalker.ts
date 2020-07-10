@@ -1,6 +1,7 @@
-import { ajax } from 'rxjs/ajax';
-import { switchMap, map } from 'rxjs/operators';
 import { zip, of } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+
+import { switchMap, map } from 'rxjs/operators';
 
 /**
  * Ejercicio: 
@@ -42,24 +43,20 @@ import { zip, of } from 'rxjs';
 (() =>{
 
     // No tocar ========================================================
-    const SW_API = 'https://swapi.dev/api';                     
+    const SW_API = 'https://swapi.dev/api'                     
     const getRequest = ( url: string ) => ajax.getJSON<any>(url);
     // ==================================================================
 
     // Realizar el llamado al URL para obtener a Luke Skywalker
-    getRequest(`Aquí va un URL`).pipe(
-        // Realizar los operadores respectivos aquí
-        
-
-
-        
+    getRequest(`${SW_API}/people/1`).pipe(
+      
+      // species viene con un Array vacío por lo que tomo starships
+      // switchMap(resp => getRequest(resp.films[0]))
+      switchMap(resp => zip(of(resp), getRequest(resp.starships[0]))),
+      map(([personaje, especie]) => ({personaje, especie}))
 
     // NO TOCAR el subscribe ni modificarlo ==
     ).subscribe( console.log )           // ==
     // =======================================
 
-
-
 })();
-
-		

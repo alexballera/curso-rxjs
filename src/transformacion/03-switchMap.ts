@@ -44,6 +44,7 @@ const mostrarUsuarios = (usuarios: GithubUser[]) => {
 // Streams
 const input$ = fromEvent<KeyboardEvent>(textInput, 'keyup')
 
+// Con mergeMap
 input$.pipe(
   debounceTime<KeyboardEvent>(500),
   pluck<KeyboardEvent, string>('target', 'value'),
@@ -53,6 +54,7 @@ input$.pipe(
   pluck<any, GithubUser[]>('items')
 )//.subscribe(mostrarUsuarios)
 
+// Con switchMap
 const url = 'https://httpbin.org/delay/1?arg='
 
 input$.pipe(
