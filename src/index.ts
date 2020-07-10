@@ -7,4 +7,3 @@
  * combineLatest<O extends ObservableInput<any>, R>(...observables: (SchedulerLike | O | ((...values: ObservedValueOf<O>[]) => R))[]): Observable<R>
  * https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest
 */
-
