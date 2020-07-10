@@ -1,9 +1,13 @@
-
 /** 
- * function combineLatest: Combina múltiples observables
- * para crear un observable cuyos valores se calculan a
- * partir de los últimos valores de cada uno de sus
- * observables de entrada.
- * combineLatest<O extends ObservableInput<any>, R>(...observables: (SchedulerLike | O | ((...values: ObservedValueOf<O>[]) => R))[]): Observable<R>
- * https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest
+ * forkJoin: Acepta una matriz de ObservableInput o un objeto de
+ * diccionario de ObservableInput y devuelve un Observable que emite
+ * una matriz de valores exactamente en el mismo orden que la matriz
+ * aprobada, o un diccionario de valores en la misma forma que el
+ * diccionario pasado. Devuelve el último valor de cada observable.
+ * Los ObservableInput deben ser finitos y forkJoin emite los valores
+ * una vez que todos los observables se han completado
+ * 
+ * forkJoin(...sources: any[]): Observable<any>
+ * 
+ * https://rxjs-dev.firebaseapp.com/api/index/function/forkJoin
 */
