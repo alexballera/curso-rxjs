@@ -1,37 +1,10 @@
-import { ajax } from 'rxjs/ajax';
-import { startWith } from 'rxjs/operators';
 
 /** 
- * startWith: Devuelve un Observable que emite los elementos
- * que especifique como argumentos antes de comenzar a emitir
- * elementos emitidos por el Observable de origen.
- * startWith<T, D>(...array: (SchedulerLike | T)[]): OperatorFunction<T, T | D>
- * https://rxjs-dev.firebaseapp.com/api/operators/startWith
- * 
- * endWith: Devuelve un Observable que emite los elementos que
- * especifique como argumentos después de que termine de emitir
- * elementos emitidos por el Observable de origen.
- * endWith<T>(...array: (SchedulerLike | T)[]): MonoTypeOperatorFunction<T>
- * https://rxjs-dev.firebaseapp.com/api/operators/endWith
+ * function combineLatest: Combina múltiples observables
+ * para crear un observable cuyos valores se calculan a
+ * partir de los últimos valores de cada uno de sus
+ * observables de entrada.
+ * combineLatest<O extends ObservableInput<any>, R>(...observables: (SchedulerLike | O | ((...values: ObservedValueOf<O>[]) => R))[]): Observable<R>
+ * https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest
 */
 
-// Referencias
-const loadingDiv = document.createElement('div')
-loadingDiv.classList.add('loading')
-loadingDiv.innerHTML = 'Cargando...'
-const body = document.querySelector('body')
-
-// Streams
-ajax.getJSON('https://reqres.in/api/users/2?delay=3')
-.pipe(
-  startWith(true)
-)
-.subscribe(resp => {
-
-  if (resp === true) {
-    body.append(loadingDiv)
-  } else {
-    document.querySelector('.loading').remove()
-  }
-  console.log(resp)
-})
