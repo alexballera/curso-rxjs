@@ -23,7 +23,7 @@ const intervalo$ = new Observable<number>(subs => {
 })
 
 /**
- * Subjext
+ * Subject
  * 1.- Casteo múltiple: sirve para emitir el mismo dato a todos los subscribers
  * 2.- También es un observer
  * 3.- Next, error, complete
